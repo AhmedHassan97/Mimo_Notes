@@ -1,19 +1,30 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import Header from "./components/Header";
-export default function App() {
+import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import MyTabs from "./components/Footer";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./reducers/rootReducer";
+
+const store = createStore(rootReducer);
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Header />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <MyTabs />
+        </NavigationContainer>
+      </View>
+    </Provider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#F4F3F4",
   },
 });
+
+export default App;
