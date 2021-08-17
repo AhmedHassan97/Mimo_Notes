@@ -44,7 +44,8 @@ const Catalogues = () => {
               return filterType === product.category;
             }
           }).length
-        }
+        }{" "}
+        item
       </Text>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true}>
         <View
